@@ -69,16 +69,16 @@
         />
 
     <Button
+        android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="50dp"
+
         android:layout_marginTop="16dp"
         android:layout_marginRight="50dp"
-
-        android:layout_gravity="center_horizontal"
-        android:text="SignUp"
         android:background="@drawable/round"
-        />
+        android:text="SignUp" />
     <TextView
         android:id="@+id/SignIn"
         android:layout_width="wrap_content"
