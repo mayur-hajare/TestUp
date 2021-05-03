@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/signup" />
@@ -35,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
         android:hint="Email"
         android:singleLine="true"
@@ -49,6 +48,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:hint="Phone"
         android:singleLine="true"
         android:cursorVisible="false"
@@ -61,6 +61,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:hint="Password"
         android:singleLine="true"
         android:cursorVisible="false"
