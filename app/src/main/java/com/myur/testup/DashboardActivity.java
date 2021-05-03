@@ -50,7 +50,7 @@ public class DashboardActivity extends AppCompatActivity {
                     }
                 };
             recyclerView.setAdapter(firebaseRecyclerAdapter);
-            //Faild
+            //Fail
 
         }
 
