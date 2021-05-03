@@ -18,20 +18,20 @@
         app:lottie_rawRes="@raw/login" />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="50dp"
+        android:backgroundTint="@color/purple_500"
+        android:cursorVisible="false"
         android:hint="Email"
         android:singleLine="true"
-        android:cursorVisible="false"
-        android:backgroundTint="@color/purple_500"
 
         />
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="50dp"
@@ -44,6 +44,7 @@
         />
 
     <Button
+        android:id="@+id/SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"

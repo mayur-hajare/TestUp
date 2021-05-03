@@ -51,26 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        myRef.setValue("All Is We ll!");
 
-        // Read from the database
-        ValueEventListener valueEventListener = myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-
-                Toast.makeText(SignUpActivity.this,value,Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException());
-                Toast.makeText(SignUpActivity.this,"Failed to read value.",Toast.LENGTH_LONG).show();
-            }
-        });
 
         SignUP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +67,8 @@ public class SignUpActivity extends AppCompatActivity {
                             database.getReference().child("Users").child(id).setValue(user);
 
                             Toast.makeText(SignUpActivity.this,"Successful",Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(SignUpActivity.this,LoginActivity.class);
+                            startActivity(intent);
                         }
                         else {
                             Toast.makeText(SignUpActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
