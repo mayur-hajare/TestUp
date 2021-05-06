@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,58 +25,101 @@ import com.myur.testup.Models.Users;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button SignIn;
-    EditText etmail,etpass,etphone;
-    ProgressDialog progressDialog;
-    // Write a message to the database
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
-    private FirebaseAuth mAuth;
+    private EditText emailTextView, passwordTextView;
+    private Button Btn;
+    private ProgressBar progressbar;
 
+    private FirebaseAuth mAuth;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        etmail=findViewById(R.id.etEmail);
-        etpass=findViewById(R.id.etPassword);
-
-        SignIn=findViewById(R.id.SignIn);
-
-        progressDialog=new ProgressDialog(LoginActivity.this);
-        progressDialog.setTitle("Login.....");
-        progressDialog.setMessage("Just a minute...");
-
-        // Initialize Firebase Auth
+        // taking instance of FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
+        // initialising all views through id defined above
+        emailTextView = findViewById(R.id.etEmail);
+        passwordTextView = findViewById(R.id.etPassword);
+        Btn = findViewById(R.id.SignIn);
+       progressbar = findViewById(R.id.progressBar);
 
-        SignIn.setOnClickListener(new View.OnClickListener() {
+        // Set on Click Listener on Sign-in button
+        Btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                progressDialog.show();
-                mAuth.signInWithEmailAndPassword(etmail.getText().toString(),etpass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();
-                        Intent intent=new Intent(LoginActivity.this,DashboardActivity.class);
-                        startActivity(intent);
-
-                    }
-                });
+            public void onClick(View v)
+            {
+                loginUserAccount();
             }
         });
+    }
 
+    private void loginUserAccount()
+    {
 
-                TextView SignUP=findViewById(R.id.SignUP);
-                SignUP.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(LoginActivity.this,SignUpActivity.class);
-                        startActivity(intent);
+        // show the visibility of progress bar to show loading
+        progressbar.setVisibility(View.VISIBLE);
 
-                    }
-                });
+        // Take the value of two edit texts in Strings
+        String email, password;
+        email = emailTextView.getText().toString();
+        password = passwordTextView.getText().toString();
 
+        // validations for input email and password
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(),
+                    "Please enter email!!",
+                    Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(),
+                    "Please enter password!!",
+                    Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+
+        // signin existing user
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(
+                        new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(
+                                    @NonNull Task<AuthResult> task)
+                            {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Login successful!!",
+                                            Toast.LENGTH_LONG)
+                                            .show();
+                                            finish();
+
+                                    // hide the progress bar
+                                   progressbar.setVisibility(View.GONE);
+
+                                    // if sign-in is successful
+                                    // intent to home activity
+                                    Intent intent
+                                            = new Intent(LoginActivity.this,
+                                            DashboardActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                else {
+
+                                    // sign-in failed
+                                    Toast.makeText(getApplicationContext(),
+                                            "Login failed!!",
+                                            Toast.LENGTH_LONG)
+                                            .show();
+
+                                    // hide the progress bar
+                                    progressbar.setVisibility(View.GONE);
+                                }
+                            }
+                        });
     }
 }
