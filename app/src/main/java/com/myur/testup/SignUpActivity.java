@@ -21,8 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.myur.testup.Models.Users;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -62,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                     progressDialog.dismiss();
                         if(task.isSuccessful()){
-                            Users user=new Users(etmail.getText().toString(),etpass.getText().toString(),etphone.getText().toString());
+                            com.myur.testup.Models.Users user=new com.myur.testup.Models.Users(etmail.getText().toString(),etpass.getText().toString(),etphone.getText().toString());
                             String id=task.getResult().getUser().getUid();
                             database.getReference().child("Users").child(id).setValue(user);
 
