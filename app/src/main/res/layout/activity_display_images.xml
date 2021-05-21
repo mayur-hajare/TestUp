@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#FFFFFF"
     tools:context=".DisplayImagesActivity">
 
@@ -12,10 +12,18 @@
 
   <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerViewh"
         android:orientation="horizontal"
       />
+  
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerViewv"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        />
 
 
 </LinearLayout>

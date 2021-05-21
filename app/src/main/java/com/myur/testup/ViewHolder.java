@@ -30,5 +30,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         Picasso.get().load(image).into(mimagev);
 
     }
+    public  void setnewdetails(Context context,String image){
+
+
+        ImageView mimagev=view.findViewById(R.id.rImageView2);
+
+
+        Picasso.get().load(image).into(mimagev);
+
+    }
 
 }

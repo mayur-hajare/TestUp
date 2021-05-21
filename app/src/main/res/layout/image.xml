@@ -7,24 +7,31 @@
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp"
     android:elevation="80dp"
-    android:background="#F4511E"
+
     >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+       android:gravity="center_horizontal"
         >
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:id="@+id/rImageView"
-                android:scaleType="fitCenter"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:scaleType="center"
                 android:adjustViewBounds="true"
+
                 android:padding="2dp"/>
         </LinearLayout>
 
@@ -37,8 +44,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/rTextView"
             android:text="Title"
+            android:gravity="center_horizontal"
             android:fontFamily="@font/aclonica"
-            android:padding="10dp"
+            android:paddingTop="5dp"
             android:textColor="#807D7D"
             android:textSize="20sp"/>
             </LinearLayout>
