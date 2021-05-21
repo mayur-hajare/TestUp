@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/purple_500"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
     tools:context=".DisplayImagesActivity">
 
 
@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"
+        android:orientation="horizontal"
       />
 
 

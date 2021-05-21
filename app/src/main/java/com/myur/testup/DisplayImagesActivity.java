@@ -33,6 +33,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         mrecyclerView=findViewById(R.id.recyclerView);
         mrecyclerView.setHasFixedSize(true);
 
+
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -60,6 +61,9 @@ public class DisplayImagesActivity extends AppCompatActivity {
                 };
 
             mrecyclerView.setAdapter(firebaseRecyclerAdapter);
+            // for Horizontal RecyclerView
+        LinearLayoutManager layoutManager= new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        mrecyclerView.setLayoutManager(layoutManager);
     }
 
 
