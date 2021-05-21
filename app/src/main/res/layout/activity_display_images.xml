@@ -16,7 +16,15 @@
         android:id="@+id/recyclerViewh"
         android:orientation="horizontal"
       />
-  
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/recyclerViewcat"
+      android:layout_gravity="center"
+      android:orientation="vertical"
+      />
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

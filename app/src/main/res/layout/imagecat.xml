@@ -18,7 +18,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:id="@+id/rImageView2"
+                android:id="@+id/rImageView3"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:scaleType="center"

@@ -43,7 +43,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         mrecyclerViewv.setLayoutManager(new LinearLayoutManager(this));
 
         firebaseDatabase=FirebaseDatabase.getInstance();
-        reference=firebaseDatabase.getReference("Data");
+        reference=firebaseDatabase.getReference("Products");
         referencenew=firebaseDatabase.getReference("NewData");
 
     }
