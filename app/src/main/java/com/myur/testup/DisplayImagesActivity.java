@@ -6,7 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -24,12 +31,19 @@ public class DisplayImagesActivity extends AppCompatActivity {
     RecyclerView mrecyclerView,mrecyclerViewv;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference,referencenew;
+    View animation;
 
+    CheckNetworkListner checkNetworkListner=new CheckNetworkListner();
+
+
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_images);
+
+
 
         mrecyclerView=findViewById(R.id.recyclerViewh);
         mrecyclerView.setHasFixedSize(true);
@@ -49,7 +63,13 @@ public class DisplayImagesActivity extends AppCompatActivity {
     }
     @Override
     protected void onStart() {
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(checkNetworkListner,filter);
         super.onStart();
+
+        animation=findViewById(R.id.animation_view);
+
+
 
         FirebaseRecyclerAdapter<Member,ViewHolder>firebaseRecyclerAdapter=
                 new FirebaseRecyclerAdapter<Member, ViewHolder>(Member.class,
@@ -87,6 +107,16 @@ public class DisplayImagesActivity extends AppCompatActivity {
 
         StaggeredGridLayoutManager staggeredGridLayoutManager= new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         mrecyclerViewv.setLayoutManager(staggeredGridLayoutManager);
+
+
+
+
+
+    }
+    @Override
+    protected void onStop() {
+        unregisterReceiver(checkNetworkListner);
+        super.onStop();
     }
 
 

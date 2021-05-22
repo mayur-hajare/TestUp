@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     // Write a message to the database
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
+
     private FirebaseAuth mAuth;
 
     @Override
