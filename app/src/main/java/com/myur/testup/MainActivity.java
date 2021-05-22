@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     //variables
     Animation bottomAnim,topAnim;
-    ImageView Image;
+
     TextView tv,textView,textView2;
 
     @Override

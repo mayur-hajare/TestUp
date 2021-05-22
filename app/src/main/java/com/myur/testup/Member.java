@@ -1,8 +1,13 @@
 package com.myur.testup;
 
 public class Member {
-    String title,image;
-    public Member(){}
+    String title;
+    String image;
+
+    public Member(String title, String image) {
+        this.title = title;
+        this.image = image;
+    }
 
     public String getTitle() {
         return title;
@@ -18,5 +23,8 @@ public class Member {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Member() {
     }
 }

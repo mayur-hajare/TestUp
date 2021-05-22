@@ -12,31 +12,16 @@ import com.squareup.picasso.Picasso;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
+    ImageView imageView;
+    TextView textView;
     View view;
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
-    view=itemView;
+        imageView=itemView.findViewById(R.id.rImageView);
+        textView=itemView.findViewById(R.id.rTextView);
 
 
-
-    }
-    public  void setdetails(Context context,String title,String image){
-
-        TextView mtitlev=view.findViewById(R.id.rTextView);
-        ImageView mimagev=view.findViewById(R.id.rImageView);
-
-        mtitlev.setText(title);
-        Picasso.get().load(image).into(mimagev);
-
-    }
-    public  void setnewdetails(Context context,String image){
-
-
-        ImageView mimagev=view.findViewById(R.id.rImageView2);
-
-
-        Picasso.get().load(image).into(mimagev);
 
     }
 
