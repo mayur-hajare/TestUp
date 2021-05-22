@@ -4,9 +4,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     app:layout_constraintCircleRadius="30dp"
-
     android:elevation="10dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout

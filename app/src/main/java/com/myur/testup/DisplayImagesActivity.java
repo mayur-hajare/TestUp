@@ -40,6 +40,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
     DatabaseReference reference,referencenew;
 
     CheckNetworkListner checkNetworkListner=new CheckNetworkListner();
+
     FirebaseRecyclerOptions<Member>options;
     FirebaseRecyclerOptions<Member2>option;
     FirebaseRecyclerAdapter<Member,ViewHolder>adapter;
@@ -50,6 +51,10 @@ public class DisplayImagesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(checkNetworkListner,filter);
+
+
         setContentView(R.layout.activity_display_images);
         mrecyclerViewv=findViewById(R.id.recyclerViewv);
         mrecyclerView=findViewById(R.id.recyclerViewh);
@@ -62,6 +67,13 @@ public class DisplayImagesActivity extends AppCompatActivity {
         LoadData();
         LoadNewData();
 
+    }
+    @Override
+    protected void onStart() {
+    IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+    registerReceiver(checkNetworkListner,filter);
+
+        super.onStart();
     }
 
     private void LoadNewData() {
