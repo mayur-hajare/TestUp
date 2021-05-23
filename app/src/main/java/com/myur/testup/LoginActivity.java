@@ -1,8 +1,5 @@
 package com.myur.testup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,11 +23,12 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailTextView, passwordTextView;
     private Button Btn;
     private ProgressBar progressbar;
+    TextView signin;
 
     private FirebaseAuth mAuth;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // taking instance of FirebaseAuth
@@ -36,20 +38,28 @@ public class LoginActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.etEmail);
         passwordTextView = findViewById(R.id.etPassword);
         Btn = findViewById(R.id.SignIn);
-       progressbar = findViewById(R.id.progressBar);
+        progressbar = findViewById(R.id.progressBar);
+        signin=findViewById(R.id.Signin);
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         // Set on Click Listener on Sign-in button
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 loginUserAccount();
             }
         });
     }
 
-    private void loginUserAccount()
-    {
+    private void loginUserAccount() {
 
         // show the visibility of progress bar to show loading
         progressbar.setVisibility(View.VISIBLE);
@@ -82,17 +92,16 @@ public class LoginActivity extends AppCompatActivity {
                         new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(
-                                    @NonNull Task<AuthResult> task)
-                            {
+                                    @NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(),
                                             "Login successful!!",
                                             Toast.LENGTH_LONG)
                                             .show();
-                                            finish();
+                                    finish();
 
                                     // hide the progress bar
-                                   progressbar.setVisibility(View.GONE);
+                                    progressbar.setVisibility(View.GONE);
 
                                     // if sign-in is successful
                                     // intent to home activity
@@ -100,9 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                                             = new Intent(LoginActivity.this,
                                             DisplayImagesActivity.class);
                                     startActivity(intent);
-                                }
-
-                                else {
+                                } else {
 
                                     // sign-in failed
                                     Toast.makeText(getApplicationContext(),

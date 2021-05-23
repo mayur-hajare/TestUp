@@ -71,6 +71,7 @@
                 android:padding="10dp"
                 android:text="Title"
                 android:textSize="10sp"
+                android:paddingBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />

@@ -40,7 +40,7 @@
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
@@ -64,7 +64,7 @@
         android:background="@drawable/round"
         />
     <TextView
-        android:id="@+id/SignUP"
+        android:id="@+id/Signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Have an account? Sign In"
