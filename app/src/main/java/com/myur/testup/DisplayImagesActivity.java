@@ -81,7 +81,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         adapterNew = new FirebaseRecyclerAdapter<Member2, ViewHolder>(option) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Member2 model) {
-               // holder.textView.setText(model.getTitle());
+               holder.textView.setText(model.getTitle());
                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
                 holder.view.setOnClickListener(new View.OnClickListener() {
