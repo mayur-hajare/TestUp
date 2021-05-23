@@ -1,56 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="80dp"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp"
-    android:elevation="80dp"
 
     >
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
-       android:gravity="center_horizontal"
-        >
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_gravity="center_horizontal">
+
             <ImageView
+                android:id="@+id/rImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rImageView"
+
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
 
-                android:padding="2dp"/>
+                android:padding="2dp" />
         </LinearLayout>
 
         <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rTextView"
-            android:text="Title"
-            android:gravity="center_horizontal"
-            android:fontFamily="@font/aclonica"
-            android:paddingTop="5dp"
-            android:textColor="#807D7D"
-            android:textSize="10sp"/>
-            </LinearLayout>
-    </LinearLayout>
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/rTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:text="Title"
+                android:textColor="#807D7D"
+                android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/rDes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5dp"
+                    android:textColor="#807D7D"
+                    android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>

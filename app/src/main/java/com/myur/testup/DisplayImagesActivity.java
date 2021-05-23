@@ -2,14 +2,12 @@ package com.myur.testup;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -55,7 +53,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(DisplayImagesActivity.this,"Make sure Your Connection On...",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DisplayImagesActivity.this, "Make sure Your Connection On...", Toast.LENGTH_LONG).show();
                             dialog.dismiss();
                         }
                     });
@@ -83,8 +81,17 @@ public class DisplayImagesActivity extends AppCompatActivity {
         adapterNew = new FirebaseRecyclerAdapter<Member2, ViewHolder>(option) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Member2 model) {
-                holder.textView.setText(model.getTitle());
+               // holder.textView.setText(model.getTitle());
                 Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                holder.view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(DisplayImagesActivity.this,Details.class);
+                        intent.putExtra("ItemKey",getRef(position).getKey());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull
@@ -109,7 +116,17 @@ public class DisplayImagesActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Member model) {
                 holder.textView.setText(model.getTitle());
+                //holder.des.setText(model.getDes());
                 Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                holder.view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(DisplayImagesActivity.this,Details.class);
+                        intent.putExtra("ItemKey",getRef(position).getKey());
+                        startActivity(intent);
+                    }
+                });
 
             }
 

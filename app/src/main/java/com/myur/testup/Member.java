@@ -1,12 +1,29 @@
 package com.myur.testup;
 
 public class Member {
-    String title;
     String image;
+    String title;
+    String des;
 
-    public Member(String title, String image) {
-        this.title = title;
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public Member(String image, String title, String des) {
         this.image = image;
+        this.title = title;
+        this.des = des;
+    }
+
+    public Member(){}
+
+    public Member(String image, String title) {
+        this.image = image;
+        this.title = title;
     }
 
     public String getTitle() {
@@ -23,8 +40,5 @@ public class Member {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public Member() {
     }
 }

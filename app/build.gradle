@@ -59,5 +59,7 @@ dependencies {
 
     //Lottie
     implementation 'com.airbnb.android:lottie:3.7.0'
+    //image Background
+    implementation 'com.android.support:palette-v7:30.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
