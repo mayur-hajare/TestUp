@@ -1,8 +1,14 @@
 package com.myur.testup;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +20,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Details extends AppCompatActivity {
 
     ImageView imageView;
-    TextView textView,des;
+    TextView textView,des,details;
+    EditText strip,packet;
     DatabaseReference databaseReference;
+    ImageButton cartButton;
+    private static final String orders = "example.txt";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +46,12 @@ public class Details extends AppCompatActivity {
         imageView = findViewById(R.id.rImageView);
         textView = findViewById(R.id.title);
         des = findViewById(R.id.rDes);
+        cartButton = findViewById(R.id.cartButton);
+        strip = findViewById(R.id.editText3);
+        packet = findViewById(R.id.editText4);
+        details = findViewById(R.id.details);
+
+
 
         String ItemKey = getIntent().getStringExtra("ItemKey");
 
@@ -45,6 +67,47 @@ public class Details extends AppCompatActivity {
                     Picasso.get().load(image).into(imageView);
                     textView.setText(title);
                     des.setText(descrip);
+
+                    cartButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String strips=strip.getText().toString();
+                            String packets=packet.getText().toString();
+                            String titles=textView.getText().toString();
+                            String detail=titles+'\n'+strips+'\n'+packets;
+                            String info=null;
+                            info=info+'\n'+detail;
+                            details.setText(detail);
+                            Intent intent = new Intent(Details.this, DisplayImagesActivity.class);
+                            intent.putExtra(Intent.EXTRA_TEXT, info);
+                            startActivity(intent);
+
+                            //Changes need for save file
+                            FileOutputStream fos = null;
+                            try {
+                                fos = openFileOutput(orders, MODE_PRIVATE);
+                                fos.write(info.getBytes());
+                                Toast.makeText(Details.this, "Saved to " + getFilesDir() + "/" + orders,
+                                        Toast.LENGTH_LONG).show();
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } finally {
+                                if (fos != null) {
+                                    try {
+                                        fos.close();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+
+                            Toast.makeText(Details.this, info, Toast.LENGTH_LONG).show();
+
+
+                        }
+                    });
 
                 }
             }

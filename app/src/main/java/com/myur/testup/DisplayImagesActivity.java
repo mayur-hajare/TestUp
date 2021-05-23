@@ -31,6 +31,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
     DatabaseReference reference, referencenew;
 
 
+
     FirebaseRecyclerOptions<Member> options;
     FirebaseRecyclerOptions<Member2> option;
     FirebaseRecyclerAdapter<Member, ViewHolder> adapter;

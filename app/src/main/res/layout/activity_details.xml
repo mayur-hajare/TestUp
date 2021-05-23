@@ -93,7 +93,7 @@
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/purple_500"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintBottom_toTopOf="@+id/cartButton"
             app:layout_constraintEnd_toStartOf="@+id/editText4"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,14 +108,14 @@
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/purple_500"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintBottom_toTopOf="@+id/cartButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/editText3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/cartButton"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/round"
@@ -125,6 +125,11 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<TextView
+    android:id="@+id/details"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 </RelativeLayout>
