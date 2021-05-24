@@ -1,8 +1,11 @@
 package com.myur.testup;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.InputDevice;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,11 +23,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -81,15 +88,32 @@ public class Details extends AppCompatActivity {
                             String info="";
                             info=info+'\n'+detail;
                             details.setText(detail);
-                            Intent intent = new Intent(Details.this, DisplayImagesActivity.class);
+                          /*  Intent intent = new Intent(Details.this, DisplayImagesActivity.class);
                             intent.putExtra(Intent.EXTRA_TEXT, info);
-                            startActivity(intent);
+                            startActivity(intent);*/
 
                             //Changes Done for save file
                             FileOutputStream fos = null;
                             try {
                                 fos = openFileOutput(orders, MODE_APPEND);
                                 fos.write(info.getBytes());
+
+                                //file Open
+                              /*  String path;
+                                path="/data/user/0/com.myur.testup/files/example.txt";
+                                File yourFile = new File( path );*/
+                                Context context = getApplicationContext();
+                                FileInputStream fis = context.openFileInput("example.txt");
+                                InputStreamReader isr = new InputStreamReader(fis);
+                                BufferedReader bufferedReader = new BufferedReader(isr);
+                                StringBuilder sb = new StringBuilder();
+                                String line;
+                                while ((line = bufferedReader.readLine()) != null) {
+                                    sb.append('\n'+line);
+                                }
+                                Toast.makeText(Details.this, "Cart Item"+'\n'+sb, Toast.LENGTH_LONG).show();
+
+
                                 Toast.makeText(Details.this, "Saved to " + getFilesDir() + "/" + orders,
                                         Toast.LENGTH_LONG).show();
                             } catch (FileNotFoundException e) {
@@ -106,7 +130,6 @@ public class Details extends AppCompatActivity {
                                 }
                             }
 
-                          //  Toast.makeText(Details.this, info, Toast.LENGTH_LONG).show();
 
 
                         }
@@ -125,4 +148,5 @@ public class Details extends AppCompatActivity {
 
 
     }
+
 }
