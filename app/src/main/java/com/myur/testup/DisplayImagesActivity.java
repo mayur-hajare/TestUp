@@ -43,6 +43,11 @@ public class DisplayImagesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+        Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
+
+
         common = new Common(DisplayImagesActivity.this);
         isconnected = common.isInternetConnected();
         if (!isconnected) {

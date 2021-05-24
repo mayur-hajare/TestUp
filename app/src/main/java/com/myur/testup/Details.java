@@ -25,6 +25,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class Details extends AppCompatActivity {
 
@@ -75,17 +78,17 @@ public class Details extends AppCompatActivity {
                             String packets=packet.getText().toString();
                             String titles=textView.getText().toString();
                             String detail=titles+'\n'+strips+'\n'+packets;
-                            String info=null;
+                            String info="";
                             info=info+'\n'+detail;
                             details.setText(detail);
                             Intent intent = new Intent(Details.this, DisplayImagesActivity.class);
                             intent.putExtra(Intent.EXTRA_TEXT, info);
                             startActivity(intent);
 
-                            //Changes need for save file
+                            //Changes Done for save file
                             FileOutputStream fos = null;
                             try {
-                                fos = openFileOutput(orders, MODE_PRIVATE);
+                                fos = openFileOutput(orders, MODE_APPEND);
                                 fos.write(info.getBytes());
                                 Toast.makeText(Details.this, "Saved to " + getFilesDir() + "/" + orders,
                                         Toast.LENGTH_LONG).show();
@@ -103,7 +106,7 @@ public class Details extends AppCompatActivity {
                                 }
                             }
 
-                            Toast.makeText(Details.this, info, Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(Details.this, info, Toast.LENGTH_LONG).show();
 
 
                         }
@@ -117,6 +120,8 @@ public class Details extends AppCompatActivity {
 
             }
         });
+
+
 
 
     }
