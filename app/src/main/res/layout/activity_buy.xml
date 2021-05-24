@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="left"
+    android:fillViewport="true"
     tools:context=".BuyActivity"
     >
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
     <TextView
         android:id="@+id/userMail"
         android:textColor="@color/purple_500"
@@ -48,5 +52,5 @@
         android:layout_below="@+id/order_list"
         android:layout_centerInParent="true"
         android:text="Place Order"/>
-
-</RelativeLayout>
+   </RelativeLayout>
+</ScrollView>

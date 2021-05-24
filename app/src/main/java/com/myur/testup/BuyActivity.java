@@ -1,6 +1,8 @@
 package com.myur.testup;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.File;
+import java.net.URLEncoder;
 
 public class BuyActivity extends AppCompatActivity {
 
@@ -51,7 +56,12 @@ public class BuyActivity extends AppCompatActivity {
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, Store);
                 sendIntent.setType("text/plain");
-                startActivity(sendIntent);
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+                File dir = getFilesDir();
+                File file = new File(dir, "example.txt");
+                boolean deleted = file.delete();
 
             }
         });
