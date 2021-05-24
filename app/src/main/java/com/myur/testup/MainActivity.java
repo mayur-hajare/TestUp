@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                finish();
                 Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
             }
         },SPLASH_SCREEN);
 

@@ -64,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
                             com.myur.testup.Models.Users user=new com.myur.testup.Models.Users(etmail.getText().toString(),etpass.getText().toString(),etphone.getText().toString());
                             String id=task.getResult().getUser().getUid();
                             database.getReference().child("Users").child(id).setValue(user);
-
+                            finish();
                             Toast.makeText(SignUpActivity.this,"Successful",Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(SignUpActivity.this,LoginActivity.class);
                             startActivity(intent);

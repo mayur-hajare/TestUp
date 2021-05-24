@@ -1,6 +1,5 @@
 package com.myur.testup;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,24 +30,20 @@ public class DisplayImagesActivity extends AppCompatActivity {
     DatabaseReference reference, referencenew;
 
 
-
     FirebaseRecyclerOptions<Member> options;
     FirebaseRecyclerOptions<Member2> option;
     FirebaseRecyclerAdapter<Member, ViewHolder> adapter;
     FirebaseRecyclerAdapter<Member2, ViewHolder> adapterNew;
 
 
-    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
+/*
         Intent intent = getIntent();
         String text = intent.getStringExtra(Intent.EXTRA_TEXT);
-        Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(this,text,Toast.LENGTH_SHORT).show();*/
 
         common = new Common(DisplayImagesActivity.this);
         isconnected = common.isInternetConnected();
@@ -89,14 +84,14 @@ public class DisplayImagesActivity extends AppCompatActivity {
         adapterNew = new FirebaseRecyclerAdapter<Member2, ViewHolder>(option) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Member2 model) {
-               holder.textView.setText(model.getTitle());
+                holder.textView.setText(model.getTitle());
                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(DisplayImagesActivity.this,Details.class);
-                        intent.putExtra("ItemKey",getRef(position).getKey());
+                        Intent intent = new Intent(DisplayImagesActivity.this, Details.class);
+                        intent.putExtra("ItemKey", getRef(position).getKey());
                         startActivity(intent);
                     }
                 });
@@ -130,8 +125,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(DisplayImagesActivity.this,Details.class);
-                        intent.putExtra("ItemKey",getRef(position).getKey());
+                        Intent intent = new Intent(DisplayImagesActivity.this, Details.class);
+                        intent.putExtra("ItemKey", getRef(position).getKey());
                         startActivity(intent);
                     }
                 });

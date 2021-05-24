@@ -1,6 +1,7 @@
 package com.myur.testup;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.L;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -44,8 +46,23 @@ public class LoginActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent intent=new Intent(LoginActivity.this,SignUpActivity.class);
                 startActivity(intent);
+
+                //save user login data
+                SharedPreferences sp=getSharedPreferences("Login", MODE_PRIVATE);
+                SharedPreferences.Editor Ed=sp.edit();
+                Ed.putString("Unm",emailTextView.getText().toString() );
+                Ed.putString("Psw",passwordTextView.getText().toString());
+                Ed.commit();
+
+
+                String unm=sp.getString("Unm", null);
+                String pass = sp.getString("Psw", null);
+
+                Toast.makeText(LoginActivity.this,unm+pass,Toast.LENGTH_LONG).show();
+
             }
         });
 

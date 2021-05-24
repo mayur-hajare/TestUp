@@ -12,7 +12,7 @@ public class Users {
         this.phonenumber = phonenumber;
     }
 
-    public Users(){}
+    public Users(String s, String toString, String string, String s1){}
     //SignuP constructor
     public Users(String mail, String password, String phoneNumber) {
 

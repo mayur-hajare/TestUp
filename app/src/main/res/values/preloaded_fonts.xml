@@ -2,7 +2,9 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aclonica</item>
+        <item>@font/actor</item>
         <item>@font/bangers</item>
         <item>@font/carme</item>
+        <item>@font/ubuntu</item>
     </array>
 </resources>

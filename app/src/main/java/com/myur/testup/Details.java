@@ -2,11 +2,9 @@ package com.myur.testup;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.InputDevice;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,25 +22,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 public class Details extends AppCompatActivity {
 
     ImageView imageView;
-    TextView textView,des,details;
-    EditText strip,packet;
+    TextView textView, des, details;
+    EditText strip, packet;
     DatabaseReference databaseReference;
     ImageButton cartButton;
+    Button buyButton;
+    String string;
     private static final String orders = "example.txt";
 
 
@@ -57,10 +51,10 @@ public class Details extends AppCompatActivity {
         textView = findViewById(R.id.title);
         des = findViewById(R.id.rDes);
         cartButton = findViewById(R.id.cartButton);
+        buyButton = findViewById(R.id.buyButton);
         strip = findViewById(R.id.editText3);
         packet = findViewById(R.id.editText4);
         details = findViewById(R.id.details);
-
 
 
         String ItemKey = getIntent().getStringExtra("ItemKey");
@@ -81,12 +75,12 @@ public class Details extends AppCompatActivity {
                     cartButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String strips=strip.getText().toString();
-                            String packets=packet.getText().toString();
-                            String titles=textView.getText().toString();
-                            String detail=titles+'\n'+strips+'\n'+packets;
-                            String info="";
-                            info=info+'\n'+detail;
+                            String strips = strip.getText().toString();
+                            String packets = packet.getText().toString();
+                            String titles = textView.getText().toString();
+                            String detail = "Item    :    "+titles + '\n'+ "Strips  :    "+ strips + '\n'+"Packets :    " + packets+'\n'+"-----------------------------------------";
+                            String info = "";
+                            info = info + '\n' + detail;
                             details.setText(detail);
                           /*  Intent intent = new Intent(Details.this, DisplayImagesActivity.class);
                             intent.putExtra(Intent.EXTRA_TEXT, info);
@@ -109,9 +103,14 @@ public class Details extends AppCompatActivity {
                                 StringBuilder sb = new StringBuilder();
                                 String line;
                                 while ((line = bufferedReader.readLine()) != null) {
-                                    sb.append('\n'+line);
+                                    sb.append('\n' + line);
                                 }
-                                Toast.makeText(Details.this, "Cart Item"+'\n'+sb, Toast.LENGTH_LONG).show();
+                                string=sb.toString();
+
+                                Toast.makeText(Details.this, "Cart Item" + '\n' + sb, Toast.LENGTH_LONG).show();
+
+
+
 
 
                                 Toast.makeText(Details.this, "Saved to " + getFilesDir() + "/" + orders,
@@ -134,6 +133,18 @@ public class Details extends AppCompatActivity {
 
                         }
                     });
+                    buyButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Details.this, BuyActivity.class);
+                            startActivity(intent);
+
+                            Intent i = new Intent(Details.this, BuyActivity.class);
+                            i.putExtra(Intent.EXTRA_TEXT, string);
+                            startActivity(i);
+
+                        }
+                    });
 
                 }
             }
@@ -143,8 +154,6 @@ public class Details extends AppCompatActivity {
 
             }
         });
-
-
 
 
     }

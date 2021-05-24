@@ -121,11 +121,25 @@
             android:background="@drawable/round"
             android:src="@drawable/ic_add_shopping_cart"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buyButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
+        <Button
+            android:id="@+id/buyButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/carme"
+            android:background="@drawable/round"
+            android:src="@drawable/ic_add_shopping_cart"
+            android:text="BUY ALL"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cartButton"
+            app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 <TextView
