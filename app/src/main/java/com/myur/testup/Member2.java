@@ -19,7 +19,8 @@ public class Member2 {
         this.des = des;
     }
 
-    public Member2(){}
+    public Member2() {
+    }
 
     public Member2(String image, String title) {
         this.image = image;

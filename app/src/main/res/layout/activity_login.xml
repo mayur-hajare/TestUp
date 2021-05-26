@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_gravity="center_vertical"
+    android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -16,13 +16,13 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/login" />
+
     <ProgressBar
-        android:visibility="invisible"
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        />
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/etEmail"
@@ -37,17 +37,18 @@
         android:singleLine="true"
 
         />
+
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:backgroundTint="@color/purple_500"
+        android:cursorVisible="false"
         android:hint="Password"
         android:singleLine="true"
-        android:cursorVisible="false"
-        android:backgroundTint="@color/purple_500"
 
         />
 
@@ -55,21 +56,20 @@
         android:id="@+id/SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="50dp"
 
-        android:layout_gravity="center_horizontal"
-        android:text="SignIn"
+        android:layout_marginRight="50dp"
         android:background="@drawable/round"
-        />
+        android:text="SignIn" />
+
     <TextView
         android:id="@+id/Signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Have an account? Sign In"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp"
         android:padding="15dp"
-        />
+        android:text="Don't Have an account? Sign In" />
 </LinearLayout>

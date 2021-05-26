@@ -2,7 +2,7 @@ package com.myur.testup.Models;
 
 public class Users {
 
-    String profile,mail,password,userid,phonenumber;
+    String profile, mail, password, userid, phonenumber;
 
     public Users(String profile, String mail, String password, String userid, String phonenumber) {
         this.profile = profile;
@@ -12,7 +12,9 @@ public class Users {
         this.phonenumber = phonenumber;
     }
 
-    public Users(String s, String toString, String string, String s1){}
+    public Users(String s, String toString, String string, String s1) {
+    }
+
     //SignuP constructor
     public Users(String mail, String password, String phoneNumber) {
 

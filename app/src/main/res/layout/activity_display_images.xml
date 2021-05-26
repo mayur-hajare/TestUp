@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context=".DisplayImagesActivity">
 
 
-  <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerViewh"
-        android:orientation="horizontal"
-      />
-
-  <androidx.recyclerview.widget.RecyclerView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/recyclerViewcat"
-      android:layout_gravity="center"
-      android:orientation="vertical"
-      />
+        android:orientation="horizontal" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewcat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerViewv"
         android:layout_gravity="center"
-        android:orientation="vertical"
-        />
+        android:orientation="vertical" />
 
 
 </LinearLayout>

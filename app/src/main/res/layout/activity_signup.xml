@@ -21,13 +21,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginTop="20dp"
-        android:hint="Name"
-        android:singleLine="true"
-        android:cursorVisible="false"
+        android:layout_marginRight="50dp"
         android:backgroundTint="@color/purple_500"
-        />
+        android:cursorVisible="false"
+        android:hint="Name"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/Email"
@@ -36,36 +35,36 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
+        android:backgroundTint="@color/purple_500"
+        android:cursorVisible="false"
         android:hint="Email"
         android:singleLine="true"
-        android:cursorVisible="false"
-      android:backgroundTint="@color/purple_500"
 
-         />
+        />
+
     <EditText
         android:id="@+id/PhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
-        android:hint="Phone"
-        android:singleLine="true"
-        android:cursorVisible="false"
+        android:layout_marginRight="50dp"
         android:backgroundTint="@color/purple_500"
-        />
+        android:cursorVisible="false"
+        android:hint="Phone"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:backgroundTint="@color/purple_500"
+        android:cursorVisible="false"
         android:hint="Password"
         android:singleLine="true"
-        android:cursorVisible="false"
-        android:backgroundTint="@color/purple_500"
 
         />
 
@@ -80,13 +79,13 @@
         android:layout_marginRight="50dp"
         android:background="@drawable/round"
         android:text="SignUp" />
+
     <TextView
         android:id="@+id/SignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Have an account? Sign UP"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp"
         android:padding="15dp"
-        />
+        android:text="Have an account? Sign UP" />
 </LinearLayout>

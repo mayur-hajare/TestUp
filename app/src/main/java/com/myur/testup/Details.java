@@ -78,7 +78,7 @@ public class Details extends AppCompatActivity {
                             String strips = strip.getText().toString();
                             String packets = packet.getText().toString();
                             String titles = textView.getText().toString();
-                            String detail = "Item    :    "+titles + '\n'+ "Strips  :    "+ strips + '\n'+"Packets :    " + packets+'\n'+"-----------------------------------------";
+                            String detail = "Item    :    " + titles + '\n' + "Strips  :    " + strips + '\n' + "Packets :    " + packets + '\n' + "-----------------------------------------";
                             String info = "";
                             info = info + '\n' + detail;
                             details.setText(detail);
@@ -105,12 +105,9 @@ public class Details extends AppCompatActivity {
                                 while ((line = bufferedReader.readLine()) != null) {
                                     sb.append('\n' + line);
                                 }
-                                string=sb.toString();
+                                string = sb.toString();
 
                                 Toast.makeText(Details.this, "Cart Item" + '\n' + sb, Toast.LENGTH_LONG).show();
-
-
-
 
 
                                 Toast.makeText(Details.this, "Saved to " + getFilesDir() + "/" + orders,
@@ -128,7 +125,6 @@ public class Details extends AppCompatActivity {
                                     }
                                 }
                             }
-
 
 
                         }

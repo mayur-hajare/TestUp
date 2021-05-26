@@ -6,25 +6,25 @@ import android.net.NetworkInfo;
 import android.util.Log;
 
 public class Common {
-    private  Context context;
-    private boolean isconnected=false;
+    private Context context;
+    private boolean isconnected = false;
     private ConnectivityManager connectivityManager;
 
-    public Common(Context context){
-        this.context=context;
+    public Common(Context context) {
+        this.context = context;
 
 
     }
 
-    public boolean isInternetConnected(){
-        try{
-            connectivityManager= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
-            isconnected=networkInfo!=null && networkInfo.isAvailable() && networkInfo.isConnected();
+    public boolean isInternetConnected() {
+        try {
+            connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            isconnected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
             return isconnected;
 
-        }catch (Exception ex){
-            Log.e("Error",ex.getLocalizedMessage());
+        } catch (Exception ex) {
+            Log.e("Error", ex.getLocalizedMessage());
 
 
         }

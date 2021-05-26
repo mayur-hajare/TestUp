@@ -1,8 +1,6 @@
 package com.myur.testup;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.io.File;
-import java.net.URLEncoder;
 
 public class BuyActivity extends AppCompatActivity {
 
@@ -50,7 +47,7 @@ public class BuyActivity extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Store=store.getText().toString()+'\n'+order_list.getText().toString();
+                Store = store.getText().toString() + '\n' + order_list.getText().toString();
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
