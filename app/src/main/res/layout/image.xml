@@ -51,15 +51,15 @@
                 android:textColor="#807D7D"
                 android:textSize="10sp" />
 
-                <TextView
-                    android:id="@+id/rDes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/aclonica"
-                    android:gravity="center_horizontal"
-                    android:paddingTop="5dp"
-                    android:textColor="#807D7D"
-                    android:textSize="10sp" />
+            <TextView
+                android:id="@+id/rDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:textColor="#807D7D"
+                android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
 

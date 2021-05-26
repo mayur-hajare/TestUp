@@ -1,69 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/InterNetCheck"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    app:layout_constraintCircleRadius="30dp"
     android:elevation="10dp"
-    android:id="@+id/InterNetCheck"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:layout_constraintCircleRadius="30dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
-        android:padding="25dp"
-        >
+        android:orientation="vertical"
+        android:padding="25dp">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            android:layout_gravity="center"
             app:lottie_rawRes="@raw/internetconnection" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OOPS!"
-            android:textSize="50dp"
-            android:fontFamily="@font/aclonica"
-            android:textColor="#FFB300"
             android:layout_gravity="center"
-            />
+            android:fontFamily="@font/aclonica"
+            android:text="OOPS!"
+            android:textColor="#FFB300"
+            android:textSize="50dp" />
 
         <TextView
             android:id="@+id/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Internet Connection"
-            android:textColor="@color/black"
-            android:fontFamily="@font/aclonica"
             android:layout_gravity="center"
-            />
+            android:fontFamily="@font/aclonica"
+            android:text="No Internet Connection"
+            android:textColor="@color/black" />
+
         <TextView
             android:id="@+id/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/aclonica"
             android:text="Please check your connection"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            />
+            android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Retry"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:background="@color/purple_500"
             android:fontFamily="@font/aclonica"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"/>
+            android:text="Retry"
+            android:textColor="@color/white" />
 
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

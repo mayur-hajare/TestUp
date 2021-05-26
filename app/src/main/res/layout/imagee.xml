@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#4FFFB300"
+    android:elevation="30dp"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
-    card_view:cardBackgroundColor="@android:color/transparent"
-    android:elevation="30dp"
-    android:background="#4FFFB300">
+    card_view:cardBackgroundColor="@android:color/transparent">
 
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/rImageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rImageView2"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:scaleType="center"
-                android:adjustViewBounds="true"
-                android:background="@drawable/round"
-               />
-        </LinearLayout>
-
-
-
-
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round"
+            android:scaleType="center" />
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>
